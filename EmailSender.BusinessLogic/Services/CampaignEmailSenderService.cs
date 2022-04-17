@@ -1,4 +1,5 @@
-﻿using EmailSender.Interface;
+﻿using EmailSender.BusinessLogic.Interfaces;
+using EmailSender.Interface;
 using EmailSenderBusinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,17 +12,28 @@ namespace EmailSenderBusinessLogic.Services
     public class CampaignEmailSenderService : ICampaignEmailSenderService
     {
         private readonly IEmailSenderService _emailSender;
+        private readonly IContactService _contactService;
 
-        public CampaignEmailSenderService(IEmailSenderService emailSender)
+        public CampaignEmailSenderService(IEmailSenderService emailSender, IContactService contactService)
         {
             _emailSender = emailSender;
+            _contactService = contactService;
         }
 
         public async Task<string> ExecuteSendCampaignEmail(string recipientFullName, string recipientEmail)
         {
             var subject = GetCampaignEmailSubject();
             var body = GetCampaignEmailBody(recipientFullName);
-            return await _emailSender.SendEmailAsync(recipientEmail, subject, body);
+
+            var contacts = await _contactService.GetCollectionsOfContact();
+            foreach (var contact in contacts.Where(x => recipientEmail.Contains(x.EmailAdress)))
+            {
+                if(string.IsNullOrWhiteSpace(contact.EmailAdress) == false)
+                {
+                    return await _emailSender.SendEmailAsync(contact.EmailAdress, subject, body);
+                }
+            }
+            return "Value cannot be null or the recipient emailadress is not included in the database.";
         }
 
         private string GetCampaignEmailSubject()

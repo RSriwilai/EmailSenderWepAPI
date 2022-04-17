@@ -24,7 +24,7 @@ namespace EmailSender.DataAccess.Repositories
             var contact = await _db.Contacts.FirstOrDefaultAsync(x => x.Id == contactId);
             return contact;
         }
-        public async Task<List<Contact>> GetCollectionsOfContactById()
+        public async Task<List<Contact>> GetCollectionsOfContact()
         {
             var contacts = await _db.Contacts.ToListAsync();
             return contacts;

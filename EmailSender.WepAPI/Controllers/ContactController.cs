@@ -32,7 +32,7 @@ namespace EmailSender.WepAPI.Controllers
         [Route("GetContacts")]
         public async Task<IActionResult> GetCollectionsOfContactById()
         {
-            var contact = await _contactService.GetCollectionsOfContactById();
+            var contact = await _contactService.GetCollectionsOfContact();
 
             if (contact is null)
             {

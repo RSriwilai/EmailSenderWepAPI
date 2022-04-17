@@ -10,6 +10,6 @@ namespace EmailSender.BusinessLogic.Interfaces
     public interface IContactService
     {
         Task<Contact> GetContactById(int contactId);
-        Task<List<Contact>> GetCollectionsOfContactById();
+        Task<List<Contact>> GetCollectionsOfContact();
     }
 }

@@ -24,9 +24,9 @@ namespace EmailSender.BusinessLogic.Services
             return contact;
         }
 
-        public async Task<List<Contact>> GetCollectionsOfContactById()
+        public async Task<List<Contact>> GetCollectionsOfContact()
         {
-            var contacts = await _contactRepo.GetCollectionsOfContactById();
+            var contacts = await _contactRepo.GetCollectionsOfContact();
             return contacts.ToList();
         }
 
