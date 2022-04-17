@@ -26,7 +26,7 @@ namespace EmailSenderBusinessLogic.Services
 
         private string GetCampaignEmailSubject()
         {
-            var subjectText = "Hello and welcome to Test Company!";
+            var subjectText = "Hello and welcome!";
             return subjectText;
         }
 

@@ -8,6 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" Version="3.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MimeKit" Version="3.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.0" />
@@ -17,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmailSender.BusinessLogic\EmailSender.BusinessLogic.csproj" />
+    <ProjectReference Include="..\EmailSender.DataAccess\EmailSender.DataAccess.csproj" />
     <ProjectReference Include="..\EmailSender.Utilis\EmailSender.Utilis.csproj" />
   </ItemGroup>
 

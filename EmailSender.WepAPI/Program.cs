@@ -1,8 +1,10 @@
+using EmailSender.DataAccess.DBContext;
 using EmailSender.Interface;
 using EmailSender.Model;
 using EmailSender.Service;
 using EmailSenderBusinessLogic.Interfaces;
 using EmailSenderBusinessLogic.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +19,10 @@ builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpS
 builder.Services.AddSingleton<IEmailSenderService, EmailSenderService>();
 builder.Services.AddScoped<ICampaignEmailSenderService, CampaignEmailSenderService>();
 
+builder.Services.AddDbContext<EmailSenderDBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 builder.Services.AddSwaggerGen(c =>
 {
