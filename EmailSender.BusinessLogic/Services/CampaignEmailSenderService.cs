@@ -17,30 +17,36 @@ namespace EmailSenderBusinessLogic.Services
             _emailSender = emailSender;
         }
 
-        public async Task<string> ExecuteSendCampaignEmail(string recipientEmail)
+        public async Task<string> ExecuteSendCampaignEmail(string recipientFullName, string recipientEmail)
         {
-            var subject = GetCampaignSubject();
-            var body = GetCampaignBody();
+            var subject = GetCampaignEmailSubject();
+            var body = GetCampaignEmailBody(recipientFullName);
             return await _emailSender.SendEmailAsync(recipientEmail, subject, body);
         }
 
-        private string GetCampaignSubject()
+        private string GetCampaignEmailSubject()
         {
             var subjectText = "Hello and welcome to Test Company!";
             return subjectText;
         }
 
-        private string GetCampaignBody()
+        private string GetCampaignEmailBody(string recipientFullName)
         {
-            string fileName = "CampaignMailBody.html";
-            string path = Path.Combine(Environment.CurrentDirectory, @"Utilis\", fileName);
-            var body = string.Empty;
 
+            string fileName = "CampaignMailBody.html";
+            var backSlash = Path.DirectorySeparatorChar;
+            string solutiondir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string path = Path.Combine(solutiondir, "EmailSender" + backSlash + "EmailSender.Utilis" + backSlash + "EmailTemplates" + backSlash + fileName);
+
+            var body = string.Empty;
             using (StreamReader reader = new StreamReader(path))
             {
                 body = reader.ReadToEnd();
                 reader.Close();
             };
+
+            body = body.Replace("{RecipientFullName}", recipientFullName);
+
             return body;
         }
     }

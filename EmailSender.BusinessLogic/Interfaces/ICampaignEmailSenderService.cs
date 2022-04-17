@@ -8,6 +8,6 @@ namespace EmailSenderBusinessLogic.Interfaces
 {
     public interface ICampaignEmailSenderService
     {
-        Task<string> ExecuteSendCampaignEmail(string recipientEmail);
+        Task<string> ExecuteSendCampaignEmail(string recipientFullName, string recipientEmail);
     }
 }
