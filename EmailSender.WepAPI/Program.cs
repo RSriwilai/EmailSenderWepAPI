@@ -1,4 +1,8 @@
+using EmailSender.BusinessLogic.Interfaces;
+using EmailSender.BusinessLogic.Services;
 using EmailSender.DataAccess.DBContext;
+using EmailSender.DataAccess.Interfaces;
+using EmailSender.DataAccess.Repositories;
 using EmailSender.Interface;
 using EmailSender.Model;
 using EmailSender.Service;
@@ -16,8 +20,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+
+// AddScoped Services
 builder.Services.AddSingleton<IEmailSenderService, EmailSenderService>();
 builder.Services.AddScoped<ICampaignEmailSenderService, CampaignEmailSenderService>();
+builder.Services.AddScoped<IContactService, ContactService>();
+
+
+// AddScoped Repositories
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
 
 builder.Services.AddDbContext<EmailSenderDBContext>(options =>
 {

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace EmailSender.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CampaignEmailSenderController : Controller
     {
         private readonly ICampaignEmailSenderService _campaignEmailSenderService;

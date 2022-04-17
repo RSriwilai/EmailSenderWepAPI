@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmailSender.DataAccess.Interfaces
+namespace EmailSender.BusinessLogic.Interfaces
 {
-    public interface IContactRepository
+    public interface IContactService
     {
         Task<Contact> GetContactById(int contactId);
         Task<List<Contact>> GetCollectionsOfContactById();
