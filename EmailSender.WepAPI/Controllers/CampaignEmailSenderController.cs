@@ -1,9 +1,13 @@
-﻿using EmailSender.Interface;
+﻿using EmailSender.DataAccess;
+using EmailSender.Interface;
+using EmailSender.Models;
+using EmailSender.Models.CampaignEmailSender;
 using EmailSenderBusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using static EmailSender.DataAccess.Enums;
 
 namespace EmailSender.Controllers
 {
@@ -19,9 +23,9 @@ namespace EmailSender.Controllers
         }
 
         [HttpPost, Route("SendCampaignEmailAsync")]
-        public async Task<IActionResult> SendCampaignEmailAsync(string recipientFullName, string recipientEmail)
+        public async Task<IActionResult> SendCampaignEmailAsync(CampaignEmailInput input)
         {
-            var result = await _campaignEmailSenderService.ExecuteSendCampaignEmail(recipientFullName, recipientEmail);
+            var result = await _campaignEmailSenderService.ExecuteSendCampaignEmail(input);
 
             if (result is null)
             {
@@ -29,7 +33,34 @@ namespace EmailSender.Controllers
             }
 
             return Ok(result);
-            
+        }
+
+        [HttpPost, Route("SendCampaignEmailToMultipleRecipientsAsync")]
+        public async Task<IActionResult> SendCampaignEmailToMultipleRecipientsAsync(CampaignEmailToMultipleRecipientsInput input)
+        {
+            var result = await _campaignEmailSenderService.ExecuteSendCampaignToMultipleEmails(input);
+
+            if (result is null)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
+        }
+
+        [HttpPost, Route("SendCampaignEmailToAllRecipientAsync")]
+        public async Task<IActionResult> SendCampaignEmailToAllRecipientAsync(CampaignEmailToAllRecipientInput input)
+        {
+            var result = await _campaignEmailSenderService.ExecuteSendCampaignToAllEmails(input);
+
+            if (result is null)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
     }
 }
+
+

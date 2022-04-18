@@ -14,20 +14,6 @@ namespace EmailSender.WepAPI.Controllers
             _contactService = contactService;
         }
 
-        [HttpGet("contactId")]
-        public async Task<IActionResult> GetContactById(int contactId)
-        {
-            var contact = await _contactService.GetContactById(contactId);
-
-            if(contact is null)
-            {
-                return BadRequest(contact);
-            }
-
-            return Ok(contact);
-
-        }
-
         [HttpGet]
         [Route("GetContacts")]
         public async Task<IActionResult> GetCollectionsOfContactById()

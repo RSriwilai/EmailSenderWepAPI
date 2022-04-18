@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmailSender.DataAccess\EmailSender.DataAccess.csproj" />
+    <ProjectReference Include="..\EmailSender.Models\EmailSender.Models.csproj" />
     <ProjectReference Include="..\EmailSender.Utilis\EmailSender.Utilis.csproj" />
   </ItemGroup>
 

@@ -19,11 +19,6 @@ namespace EmailSender.DataAccess.Repositories
             _db = db;
         }
 
-        public async Task<Contact> GetContactById(int contactId)
-        {
-            var contact = await _db.Contacts.FirstOrDefaultAsync(x => x.Id == contactId);
-            return contact;
-        }
         public async Task<List<Contact>> GetCollectionsOfContact()
         {
             var contacts = await _db.Contacts.ToListAsync();

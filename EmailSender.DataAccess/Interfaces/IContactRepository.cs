@@ -9,7 +9,6 @@ namespace EmailSender.DataAccess.Interfaces
 {
     public interface IContactRepository
     {
-        Task<Contact> GetContactById(int contactId);
         Task<List<Contact>> GetCollectionsOfContact();
     }
 }

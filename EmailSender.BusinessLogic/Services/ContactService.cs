@@ -18,12 +18,6 @@ namespace EmailSender.BusinessLogic.Services
             _contactRepo = contactRepo;
         }
 
-        public async Task<Contact> GetContactById(int contactId)
-        {
-            var contact = await _contactRepo.GetContactById(contactId);
-            return contact;
-        }
-
         public async Task<List<Contact>> GetCollectionsOfContact()
         {
             var contacts = await _contactRepo.GetCollectionsOfContact();
