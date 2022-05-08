@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender.WepAPI", "EmailSender.WepAPI\EmailSender.WepAPI.csproj", "{BD8C21CC-8FCA-4D39-B378-8B05DA5D129E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender.BusinessLogic", "EmailSender.BusinessLogic\EmailSender.BusinessLogic.csproj", "{F7F6B037-33B6-43B6-AED4-A027CA50D991}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender.Utilis", "EmailSender.Utilis\EmailSender.Utilis.csproj", "{9F00B3F1-E58F-4ACC-8130-B1C0702350B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender.DataAccess", "EmailSender.DataAccess\EmailSender.DataAccess.csproj", "{293BAA17-6421-4873-A29E-EDBAE8B301A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender.DataAccess", "EmailSender.DataAccess\EmailSender.DataAccess.csproj", "{293BAA17-6421-4873-A29E-EDBAE8B301A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender.Models", "EmailSender.Models\EmailSender.Models.csproj", "{A4791F53-3378-4921-B023-1D5201D25E6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSender.Models", "EmailSender.Models\EmailSender.Models.csproj", "{A4791F53-3378-4921-B023-1D5201D25E6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender.WebAPI", "EmailSender.WebAPI\EmailSender.WebAPI.csproj", "{A91540BB-80D4-4A3F-A594-7A33B97713E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BD8C21CC-8FCA-4D39-B378-8B05DA5D129E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD8C21CC-8FCA-4D39-B378-8B05DA5D129E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD8C21CC-8FCA-4D39-B378-8B05DA5D129E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD8C21CC-8FCA-4D39-B378-8B05DA5D129E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7F6B037-33B6-43B6-AED4-A027CA50D991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7F6B037-33B6-43B6-AED4-A027CA50D991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7F6B037-33B6-43B6-AED4-A027CA50D991}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{A4791F53-3378-4921-B023-1D5201D25E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4791F53-3378-4921-B023-1D5201D25E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4791F53-3378-4921-B023-1D5201D25E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91540BB-80D4-4A3F-A594-7A33B97713E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91540BB-80D4-4A3F-A594-7A33B97713E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91540BB-80D4-4A3F-A594-7A33B97713E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91540BB-80D4-4A3F-A594-7A33B97713E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

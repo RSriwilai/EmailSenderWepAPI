@@ -25,6 +25,7 @@ namespace EmailSender.DataAccess.DatabaseModels
         
         [Required]
         [MaxLength(100)]
+        [EmailAddress]
         public string EmailAdress { get; set; }
     }
 }
