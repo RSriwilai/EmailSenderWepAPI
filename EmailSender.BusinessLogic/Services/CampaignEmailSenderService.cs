@@ -85,7 +85,6 @@ namespace EmailSenderBusinessLogic.Services
 
         private string GetCampaignEmailBody(string recipientFirstName)
         {
-
             string fileName = "CampaignMailBody.html";
             var backSlash = Path.DirectorySeparatorChar;
             string solutiondir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
@@ -99,7 +98,6 @@ namespace EmailSenderBusinessLogic.Services
             };
 
             body = body.Replace("{RecipientFullName}", recipientFirstName);
-
             return body;
         }
     }
