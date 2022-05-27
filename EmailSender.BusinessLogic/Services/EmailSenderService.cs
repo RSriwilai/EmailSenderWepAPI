@@ -16,7 +16,7 @@ namespace EmailSender.Service
             _smtpSettings = smtpSettings.Value;
         }
 
-        public async Task<string> SendEmailAsync(string recipientEmail, string subject, string mesasge)
+        public async Task<string> SendEmailAsync(string recipientEmail, string subject, string message)
         {
             var mail = new MimeMessage();
             mail.From.Add(MailboxAddress.Parse(_smtpSettings.SenderEmail));
@@ -24,7 +24,7 @@ namespace EmailSender.Service
             mail.Subject = subject;
 
             var builder = new BodyBuilder();
-            builder.HtmlBody = mesasge;
+            builder.HtmlBody = message;
             mail.Body = builder.ToMessageBody();
 
             var client = new SmtpClient();
